@@ -15,6 +15,18 @@ struct SetGame {
     private(set) var matchedCards = [Card]()
     private(set) var score = 0
     
+    mutating func shuffleDealedCards() {
+        var shuffledCards = [Card]()
+        var index = 0
+        for _ in 1..<dealedCards.count {
+            index = (dealedCards.count - 1).arc4random  + 1
+            shuffledCards.append(dealedCards.remove(at: index))
+        }
+        // add last remaining card
+        shuffledCards.append(dealedCards.remove(at: 0))
+        dealedCards = shuffledCards
+    }
+    
     mutating func chooseCard(_ card: Card){
         if isSet {
             // remove Set

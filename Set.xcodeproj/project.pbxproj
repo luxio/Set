@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D52064BF208CD1BA00B0F954 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52064BE208CD1BA00B0F954 /* Grid.swift */; };
+		D52064C1208CDA8700B0F954 /* SetMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52064C0208CDA8700B0F954 /* SetMainViewController.swift */; };
+		D554B7732073F379002F330E /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554B7722073F379002F330E /* SetCardView.swift */; };
 		D55C3E8D202773B800A4C57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55C3E8C202773B800A4C57E /* AppDelegate.swift */; };
-		D55C3E8F202773B800A4C57E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55C3E8E202773B800A4C57E /* ViewController.swift */; };
 		D55C3E92202773B800A4C57E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55C3E90202773B800A4C57E /* Main.storyboard */; };
 		D55C3E94202773B800A4C57E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55C3E93202773B800A4C57E /* Assets.xcassets */; };
 		D55C3E97202773B800A4C57E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55C3E95202773B800A4C57E /* LaunchScreen.storyboard */; };
@@ -17,9 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D52064BE208CD1BA00B0F954 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		D52064C0208CDA8700B0F954 /* SetMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMainViewController.swift; sourceTree = "<group>"; };
+		D554B7722073F379002F330E /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		D55C3E89202773B800A4C57E /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55C3E8C202773B800A4C57E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D55C3E8E202773B800A4C57E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D55C3E91202773B800A4C57E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D55C3E93202773B800A4C57E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D55C3E96202773B800A4C57E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,12 +62,13 @@
 		D55C3E8B202773B800A4C57E /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				D55C3E8E202773B800A4C57E /* ViewController.swift */,
 				D55C3E90202773B800A4C57E /* Main.storyboard */,
 				D55C3E98202773B800A4C57E /* Info.plist */,
 				D55C3E9E202776F200A4C57E /* Supporting Files */,
 				D55C3E9F2027772800A4C57E /* Card.swift */,
 				D55C3EA12027872C00A4C57E /* SetGame.swift */,
+				D554B7722073F379002F330E /* SetCardView.swift */,
+				D52064C0208CDA8700B0F954 /* SetMainViewController.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -71,6 +76,7 @@
 		D55C3E9E202776F200A4C57E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D52064BE208CD1BA00B0F954 /* Grid.swift */,
 				D55C3E8C202773B800A4C57E /* AppDelegate.swift */,
 				D55C3E93202773B800A4C57E /* Assets.xcassets */,
 				D55C3E95202773B800A4C57E /* LaunchScreen.storyboard */,
@@ -105,7 +111,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "LUXio IT-Solutions";
 				TargetAttributes = {
 					D55C3E88202773B800A4C57E = {
@@ -151,9 +157,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55C3EA22027872C00A4C57E /* SetGame.swift in Sources */,
-				D55C3E8F202773B800A4C57E /* ViewController.swift in Sources */,
+				D52064C1208CDA8700B0F954 /* SetMainViewController.swift in Sources */,
+				D554B7732073F379002F330E /* SetCardView.swift in Sources */,
 				D55C3EA02027772800A4C57E /* Card.swift in Sources */,
 				D55C3E8D202773B800A4C57E /* AppDelegate.swift in Sources */,
+				D52064BF208CD1BA00B0F954 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +201,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -200,6 +209,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -250,6 +260,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -257,6 +268,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
