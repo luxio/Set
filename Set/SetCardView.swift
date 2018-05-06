@@ -14,8 +14,9 @@ class SetCardView: UIView {
     var cardSymbol = CardSymbol.triangle
     var symbolColor = SymbolColor.color1
     var symbolDisplay = SymbolDisplay.filled
+    var isFaceUp: Bool = false { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
-    var borderColor = UIColor.clear
+    var borderColor = UIColor.clear { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
     private var shapePath = UIBezierPath()
     private var stripesPath = UIBezierPath()
@@ -163,7 +164,13 @@ class SetCardView: UIView {
         border?.fillColor = UIColor.clear.cgColor
         border!.strokeColor = borderColor.cgColor
         border!.lineWidth = borderWitdh
-        configureShapePath()
+        if isFaceUp {
+            configureShapePath()
+        } else {
+            // face down
+            // @todo: add card background image
+                border?.fillColor = UIColor.green.cgColor
+        }
     }
     
     override func layoutSubviews() {
