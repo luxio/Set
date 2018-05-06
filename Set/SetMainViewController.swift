@@ -16,11 +16,10 @@ class SetMainViewController: UIViewController {
     var grid = Grid(layout: .aspectRatio(SizeRatio.aspectRatio))
     let layer = CAShapeLayer()
     
-    var cardOfView: [SetCardView : Card] = [:]
+    var cardViews = [SetCardView]()
     
-    var cardViews: [SetCardView : Card?] = [:]
-    
-    private var score = 0  {
+    var cardFromView: [SetCardView : Card] = [:]
+        private var score = 0  {
         didSet {
             scoreLabel.text = "Score: \(score)"
         }
@@ -96,8 +95,7 @@ class SetMainViewController: UIViewController {
     }
     
     @objc private func touchCard(_ sender: UITapGestureRecognizer) {
-        //game.chooseCard(cardOfView[(sender.view as? SetCardView)!]!)
-        if let chosenCard = cardViews[sender.view as! SetCardView]! {
+        if let chosenCard = cardFromView[(sender.view as? SetCardView)!] {
             game.chooseCard(chosenCard)
         }
         updateViewFromModel()
@@ -105,25 +103,27 @@ class SetMainViewController: UIViewController {
     
     private func updateViewFromModel(){
         // check for cards to be removed
-        let cardsToBeRemoved = cardViews.values.filter {$0 != nil}.filter { !game.dealedCards.contains($0!)}
+        let cardsToBeRemoved = cardFromView.values.filter { !game.dealedCards.contains($0)}
         
         // remove cards
         cardsToBeRemoved.forEach { card in
-            if let cardView = (cardViews.filter { $0.value! == card}).first?.key {
+            if let cardView = (cardFromView.filter { $0.value == card}).first?.key {
                 cardView.removeFromSuperview()
-                cardViews.removeValue(forKey: cardView)
+                cardFromView.removeValue(forKey: cardView)
+                cardViews.remove(at: cardViews.index(of: cardView)!)
             }
         }
         
         
         // check for new cards
-        for card in game.dealedCards.filter({ !cardViews.values.contains($0)}) {
+        for card in game.dealedCards.filter({ !cardFromView.values.contains($0)}) {
             // set grid
             grid.cellCount = game.dealedCards.count
             grid.frame = cardsView.bounds
             
-            let setCardView = createCardViewFor(card: card, withFrame: grid[(cardViews.count == 0 ? 0 : cardViews.count-1)]!)
-            cardViews[setCardView] = card
+            let setCardView = createCardViewFor(card: card, withFrame: CGRect(x: 0, y: 0, width: (grid[0]?.width)!, height: (grid[0]?.height)!))
+            cardFromView[setCardView] = card
+            cardViews.append(setCardView)
             setCardView.isOpaque = false
             setCardView.isFaceUp = true
             
@@ -158,9 +158,19 @@ class SetMainViewController: UIViewController {
             cardsView.addSubview(setCardView)
         }
         // layout cards
-        for (index, cardView) in cardViews.keys.enumerated() {
-            if let card = cardViews[cardView] as? Card {
-                cardView.frame = grid[index]!.relativeOffsetBy(d: SizeRatio.relativeCardOffset)
+        for (index, cardView) in cardViews.enumerated() {
+            if let card = cardFromView[cardView] {
+                UIViewPropertyAnimator.runningPropertyAnimator(
+                    withDuration: 3.0,
+                    delay: 0,
+                    options: [],
+                    animations: {
+                        cardView.frame = self.grid[index]!.relativeOffsetBy(d: SizeRatio.relativeCardOffset)
+                },
+                    completion: { (position) in
+                        
+                })
+                
 
                 cardView.borderColor = game.chosenCards.contains(card) ?
                     (game.matchedCards.contains(card) ? #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1):#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) ) : #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 0)
@@ -182,7 +192,7 @@ class SetMainViewController: UIViewController {
         // show cheat
         if showCheatSet {
             game.setInDealedCards.forEach {card in
-                cardViews.first(where: { $1 == card})?.key.borderColor = #colorLiteral(red: 1, green: 0.4791216254, blue: 0, alpha: 1)
+                cardFromView.first(where: { $1 == card})?.key.borderColor = #colorLiteral(red: 1, green: 0.4791216254, blue: 0, alpha: 1)
             }
             showCheatSet = false
         }
