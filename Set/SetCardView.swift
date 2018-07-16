@@ -14,8 +14,9 @@ class SetCardView: UIView {
     var cardSymbol = CardSymbol.triangle
     var symbolColor = SymbolColor.color1
     var symbolDisplay = SymbolDisplay.filled
+    var isFaceUp: Bool = false { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
-    var borderColor = UIColor.clear
+    var borderColor = UIColor.clear { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
     private var shapePath = UIBezierPath()
     private var stripesPath = UIBezierPath()
@@ -116,7 +117,7 @@ class SetCardView: UIView {
                 stripesPath.append(
                     createStripesPattern(rect:
                         CGRect(origin: shapePath.bounds.origin.offsetBy(dx: 0, dy: CGFloat((index - 1)) * (shapeSize+shapeOffset)),
-                                 size: CGSize(width: shapeSize, height: shapeSize))))
+                               size: CGSize(width: shapeSize, height: shapeSize))))
             }
             stripesPath.lineWidth = stripeWidth
             stripesPath.stroke()
@@ -163,7 +164,13 @@ class SetCardView: UIView {
         border?.fillColor = UIColor.clear.cgColor
         border!.strokeColor = borderColor.cgColor
         border!.lineWidth = borderWitdh
-        configureShapePath()
+        if isFaceUp {
+            configureShapePath()
+        } else {
+            if let cardBackImage = UIImage(named: "cardback", in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+                cardBackImage.draw(in: bounds)
+            }
+        }
     }
     
     override func layoutSubviews() {
@@ -228,7 +235,7 @@ extension SetCardView {
         
     }
     
-        enum SymbolDisplay {
+    enum SymbolDisplay {
         case filled
         case stroked
         case striped
