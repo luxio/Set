@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D52064BF208CD1BA00B0F954 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52064BE208CD1BA00B0F954 /* Grid.swift */; };
 		D52064C1208CDA8700B0F954 /* SetMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52064C0208CDA8700B0F954 /* SetMainViewController.swift */; };
+		D5454C9B20A75D2500D516B9 /* FlyAwayBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5454C9A20A75D2500D516B9 /* FlyAwayBehavior.swift */; };
 		D554B7732073F379002F330E /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554B7722073F379002F330E /* SetCardView.swift */; };
 		D55C3E8D202773B800A4C57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55C3E8C202773B800A4C57E /* AppDelegate.swift */; };
 		D55C3E92202773B800A4C57E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55C3E90202773B800A4C57E /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		D52064BE208CD1BA00B0F954 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		D52064C0208CDA8700B0F954 /* SetMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMainViewController.swift; sourceTree = "<group>"; };
+		D5454C9A20A75D2500D516B9 /* FlyAwayBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyAwayBehavior.swift; sourceTree = "<group>"; };
 		D554B7722073F379002F330E /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		D55C3E89202773B800A4C57E /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55C3E8C202773B800A4C57E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				D55C3EA12027872C00A4C57E /* SetGame.swift */,
 				D554B7722073F379002F330E /* SetCardView.swift */,
 				D52064C0208CDA8700B0F954 /* SetMainViewController.swift */,
+				D5454C9A20A75D2500D516B9 /* FlyAwayBehavior.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				D55C3EA02027772800A4C57E /* Card.swift in Sources */,
 				D55C3E8D202773B800A4C57E /* AppDelegate.swift in Sources */,
 				D52064BF208CD1BA00B0F954 /* Grid.swift in Sources */,
+				D5454C9B20A75D2500D516B9 /* FlyAwayBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

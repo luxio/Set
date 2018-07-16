@@ -8,7 +8,6 @@
 
 import Foundation
 
-// TODO: add CustomStringConvertible
 struct Card: Hashable {
     static let numberOfAttributes = 4
     
@@ -43,16 +42,3 @@ enum CardAttribute: Equatable {
         return [.variant1, .variant2, .variant3]
     }
 }
-
-//
-//extension Expression: Equatable {
-//    static func ==(lhs: Expression, rhs: Expression)
-//        -> Bool {
-//            switch (lhs, rhs) {
-//            case let (.number(l), .number(r)): return l == r
-//            case let (.string(l), .string(r)): return l == r
-//            default: return false
-//            }
-//    }
-//}
-

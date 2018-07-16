@@ -28,11 +28,6 @@ struct SetGame {
     }
     
     mutating func chooseCard(_ card: Card){
-        if isSet {
-            // remove Set
-            dealedCards = dealedCards.filter ({!chosenCards.contains($0)})
-            dealCards(number: 3)
-        }
         if chosenCards.count == 3 {
             chosenCards = [Card]()
         }
@@ -48,6 +43,9 @@ struct SetGame {
             if isSet {
                 matchedCards += chosenCards
                 score += 3
+                dealedCards = dealedCards.filter ({!chosenCards.contains($0)})
+                dealCards(number: 3)
+                
             } else {
                 score -= 5
             }
@@ -70,7 +68,6 @@ struct SetGame {
                 dealedCards.append(deck.remove(at: deck.count.arc4random))
             }
         }
-        print("\(deck.count) Cards left")
     }
     
     func isSet(_ cards:[Card]) -> Bool {
@@ -93,7 +90,6 @@ struct SetGame {
         }
     }
     
-    
     // find a set within the dealed cards
     var setInDealedCards : [Card] {
         get {
@@ -106,7 +102,6 @@ struct SetGame {
                     for card3 in remainingCards {
                         setInDealedCards.append(remainingCards.remove(at: remainingCards.index(of: card3)!))
                         if isSet(setInDealedCards) {
-                            print("Found set: \(setInDealedCards)")
                             return setInDealedCards
                         } else {
                             remainingCards.append(setInDealedCards.removeLast())

@@ -117,7 +117,7 @@ class SetCardView: UIView {
                 stripesPath.append(
                     createStripesPattern(rect:
                         CGRect(origin: shapePath.bounds.origin.offsetBy(dx: 0, dy: CGFloat((index - 1)) * (shapeSize+shapeOffset)),
-                                 size: CGSize(width: shapeSize, height: shapeSize))))
+                               size: CGSize(width: shapeSize, height: shapeSize))))
             }
             stripesPath.lineWidth = stripeWidth
             stripesPath.stroke()
@@ -167,9 +167,9 @@ class SetCardView: UIView {
         if isFaceUp {
             configureShapePath()
         } else {
-            // face down
-            // @todo: add card background image
-                border?.fillColor = UIColor.green.cgColor
+            if let cardBackImage = UIImage(named: "cardback", in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+                cardBackImage.draw(in: bounds)
+            }
         }
     }
     
@@ -235,7 +235,7 @@ extension SetCardView {
         
     }
     
-        enum SymbolDisplay {
+    enum SymbolDisplay {
         case filled
         case stroked
         case striped
